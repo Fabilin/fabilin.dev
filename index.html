@@ -7,19 +7,42 @@
     <style>
         @property --primary-color {
             syntax: "<color>";
-            inherits: false;
+            inherits: true;
             initial-value: #6b4226;
         }
 
         @property --secondary-color {
             syntax: "<color>";
-            inherits: false;
+            inherits: true;
             initial-value: #d4a373;
+        }
+
+        :root {
+            --primary-color: hsl(24, 48%, 28%);
+            --secondary-color: hsl(30, 53%, 64%);
+            --background-color: #f5f5f5;
+            --text-color: #000000;
+            --link-color: #0969da;
+            --link-hover-color: #6c5ce7;
+            --link-visited-color: #6a0dad;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: hsl(24, 58%, 68%);
+                --secondary-color: hsl(30, 43%, 54%);
+                --background-color: #2e2e2e;
+                --text-color: #ffffff;
+                --link-color: hsl(210, 100%, 77%);
+                --link-hover-color: hsl(217, 89%, 86%);
+                --link-visited-color: #c58af9;
+            }
         }
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: var(--background-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             display: flex;
@@ -31,6 +54,19 @@
 
         h1 {
             color: var(--primary-color);
+        }
+
+        :link {
+            color: var(--link-color);
+        }
+
+
+        :link:hover {
+            color: var(--link-hover-color);
+        }
+
+        :link:active, :visited {
+            color: var(--link-visited-color);
         }
 
         .tea-cup {
